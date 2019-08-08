@@ -1,45 +1,60 @@
 
 
 
-// let secondTens = document.getElementById("secondTens");
-// let secondOnes = document.getElementById("secondOnes");
-// let colon = document.getElementById("colon");
-// let msHundreds = document.getElementById("msHundreds");
-// let msTens = document.getElementById("msTens");
-
-// var start = Date.now();
-// setInterval(function() {
-//     var delta = Date.now() - start; // milliseconds elapsed since start
-//     output(Math.floor(delta / 1000)); // in seconds
-//     // alternatively just show wall clock time:
-//     output(new Date().toUTCString());
-// }, 1000); // update about every second
+let first = document.getElementById("secondTens");
+let second = document.getElementById("secondOnes");
+let colon = document.getElementById("colon");
+let third = document.getElementById("msHundreds");
+let fourth = document.getElementById("msTens");
+let timerFull = document.querySelector("digits");
 
 var start = new Date();
-var secondTens = 0;
-var secondOnes = 0;
-var ms = 0;
+var num = 0;
+var numString = "";
+let firstTemp= "0";
+let secondTemp= "0";
+let thirdTemp= "0";
+let fourthTemp= "0";
 
-// Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
   var delta = Date.now() - start;
-    
-  // Time calculations for days, hours, minutes and seconds
-//   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-//   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-//   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-  secondTens = Math.floor(delta / 10000);
-  secondOnes = Math.floor(delta / 1000);
-  ms = Math.floor(delta / 10);
-
-    console.log("0" + secondOnes + ":" + ms);
-    
-  // If the count down is over, write some text 
-  if (secondTens == 1) {
-    clearInterval(x);
-    // document.querySelector("digits").innerHTML = "10:00";
+  num = Math.floor(delta/ 10);
+  numString = num.toString();
+  if (num <10){
+    fourthTemp = numString[0];
   }
-}, 100);
+  else if (num <100) {
+    thirdTemp = numString[0];
+    fourthTemp = numString[1];
+  }
+  else if (num <1000) {
+    secondTemp = numString[0];
+    thirdTemp = numString[1];
+    fourthTemp = numString[2];
+  }
+  else {
+    firstTemp = numString[0]
+    secondTemp = numString[1];
+    thirdTemp = numString[2];
+    fourthTemp = numString[3];
+  }
+  //change each reference to document in DOM
+first.textContent = firstTemp;
+second.textContent = secondTemp;
+third.textContent = thirdTemp;
+fourth.textContent = fourthTemp;
+    
+//stop timer at 10:00 and change to red
+  if (num > 999) {
+    clearInterval(x);
+    
+    first.classList.add("redDigit");
+    second.classList.add("redDigit");
+    third.classList.add("redDigit");
+    fourth.classList.add("redDigit");
+    colon.classList.add("redDigit");
+  }
+}, 10);
