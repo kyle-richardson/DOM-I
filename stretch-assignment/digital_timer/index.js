@@ -52,13 +52,13 @@ fourth.textContent = fourthTemp;
     third.classList.add("redDigit");
     fourth.classList.add("redDigit");
     colon.classList.add("redDigit");
-    enableStart();
+    // enableStart();
   }
 }
 
-let enableStart = function() {
-  startTimer.setAttribute('onclick', 'this.disabled = false;');
-}
+// let enableStart = function() {
+//   startTimer.setAttribute('onclick', 'this.disabled = false;');
+// }
 let setBase = function(num) {
   if(num==0){
     reset();
@@ -87,7 +87,7 @@ document.querySelector("body").appendChild(document.createElement("button"));
 let startTimer = document.querySelector("button");
 startTimer.classList.add(".start");
 startTimer.textContent = "Start";
-startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10);this.disabled = true;');
+startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10);');
 
 document.querySelector("body").appendChild(document.createElement("button"));
 let stopTimer = document.querySelectorAll("button")[1];
