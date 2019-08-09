@@ -106,3 +106,13 @@ let resetTimer = document.querySelectorAll("button")[2];
 resetTimer.classList.add(".reset");
 resetTimer.textContent = "Reset";
 resetTimer.setAttribute('onclick', 'reset(); clearInterval(x); enableStart();');
+
+//stretch, styling 
+
+let buttons = document.querySelectorAll("button");
+buttons.forEach(ele => ele.style.backgroundColor = 'lightblue');
+
+let body = document.querySelector(".digits");
+body.style.backgroundColor = 'lightgray';
+body.style.padding = '20px';
+body.style.border = '2px dotted green'
