@@ -16,7 +16,6 @@ let fourthTemp= "0";
 var x = "";
 
 var myFunction = function() {
-  disableStart();
   setBase(num);
   ++num;
   numString = num.toString();
@@ -58,11 +57,11 @@ fourth.textContent = fourthTemp;
 }
 
 let enableStart = function() {
-  startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10);');
+  startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10); disableStart()');
 }
 
 let disableStart = function() {
-  startTimer.setAttribute('onclick', '');
+  startTimer.setAttribute('onclick', 'clearInterval(x); enableStart();');
 }
 
 let setBase = function(num) {
@@ -92,17 +91,11 @@ let reset = function() {
 document.querySelector("body").appendChild(document.createElement("button"));
 let startTimer = document.querySelector("button");
 startTimer.classList.add(".start");
-startTimer.textContent = "Start";
-startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10);');
+startTimer.textContent = "Start/Pause";
+enableStart();
 
 document.querySelector("body").appendChild(document.createElement("button"));
-let stopTimer = document.querySelectorAll("button")[1];
-stopTimer.classList.add(".end");
-stopTimer.textContent = "Stop";
-stopTimer.setAttribute('onclick', 'clearInterval(x); enableStart();');
-
-document.querySelector("body").appendChild(document.createElement("button"));
-let resetTimer = document.querySelectorAll("button")[2];
+let resetTimer = document.querySelectorAll("button")[1];
 resetTimer.classList.add(".reset");
 resetTimer.textContent = "Reset";
 resetTimer.setAttribute('onclick', 'reset(); clearInterval(x); enableStart();');

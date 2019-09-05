@@ -61,12 +61,16 @@ button.addEventListener("mouseleave", e => {button.style.color = "black"; button
 //text throughout
 
 let navBar = document.querySelector("nav");
-navBar.querySelectorAll("a")[0].textContent = siteContent["nav"]["nav-item-1"];
-navBar.querySelectorAll("a")[1].textContent = siteContent["nav"]["nav-item-2"];
-navBar.querySelectorAll("a")[2].textContent = siteContent["nav"]["nav-item-3"];
-navBar.querySelectorAll("a")[3].textContent = siteContent["nav"]["nav-item-4"];
-navBar.querySelectorAll("a")[4].textContent = siteContent["nav"]["nav-item-5"];
-navBar.querySelectorAll("a")[5].textContent = siteContent["nav"]["nav-item-6"];
+
+navBar.querySelectorAll("a").forEach( (ele, index) => {
+  navBar.querySelectorAll("a")[index].textContent = siteContent["nav"][`nav-item-${index+1}`];
+})
+// navBar.querySelectorAll("a")[0].textContent = siteContent["nav"]["nav-item-1"];
+// navBar.querySelectorAll("a")[1].textContent = siteContent["nav"]["nav-item-2"];
+// navBar.querySelectorAll("a")[2].textContent = siteContent["nav"]["nav-item-3"];
+// navBar.querySelectorAll("a")[3].textContent = siteContent["nav"]["nav-item-4"];
+// navBar.querySelectorAll("a")[4].textContent = siteContent["nav"]["nav-item-5"];
+// navBar.querySelectorAll("a")[5].textContent = siteContent["nav"]["nav-item-6"];
 
 let ctaText = document.querySelector(".cta-text h1");
 ctaText.innerHTML = siteContent["cta"]["h1-1"] + "<br>"+ siteContent["cta"]["h1-2"]+ "<br>"+ siteContent["cta"]["h1-3"];
