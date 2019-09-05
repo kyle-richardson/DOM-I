@@ -127,6 +127,7 @@ timerBody.style.borderRadius = '8px';
 timerBody.style.minWidth = '200px';
 timerBody.style.textAlign = 'center';
 timerBody.style.marginTop = "200px";
+timerBody.style.boxShadow = "0px 0px 15px 10px gray";
 first.style.color = 'white';
 second.style.color = 'white';
 third.style.color = 'white';
