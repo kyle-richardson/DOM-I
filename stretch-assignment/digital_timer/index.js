@@ -5,8 +5,6 @@ let third = document.getElementById("msHundreds");
 let fourth = document.getElementById("msTens");
 let timer = document.querySelectorAll(".digits div");
 
-// var start = new Date();
-var start = 0;
 var num = 0;
 var numString = "";
 let firstTemp= "0";
