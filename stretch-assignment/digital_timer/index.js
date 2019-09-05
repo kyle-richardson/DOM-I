@@ -58,10 +58,14 @@ fourth.textContent = fourthTemp;
 
 let enableStart = function() {
   startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10); disableStart()');
+  startTimer.style.backgroundColor = "green";
+  startTimer.textContent = "Start";
 }
 
 let disableStart = function() {
   startTimer.setAttribute('onclick', 'clearInterval(x); enableStart();');
+  startTimer.style.backgroundColor = "red";
+  startTimer.textContent = "Stop";
 }
 
 let setBase = function(num) {
@@ -72,10 +76,10 @@ let setBase = function(num) {
 }
 let reset = function() {
   num=0;
-  first.textContent = "0";
-  second.textContent = "0";
-  third.textContent = "0";
-  fourth.textContent = "0";
+  first.textContent = "-";
+  second.textContent = "-";
+  third.textContent = "-";
+  fourth.textContent = "-";
   firstTemp = "0";
   secondTemp = "0";
   thirdTemp = "0";
@@ -87,14 +91,15 @@ let reset = function() {
   colon.classList.remove("redDigit");
 }
 
+document.querySelector(".digits").appendChild(document.createElement("section"));
+document.querySelector(".digits section").appendChild(document.createElement("button"));
+document.querySelector(".digits section").appendChild(document.createElement("button"));
 
-document.querySelector("body").appendChild(document.createElement("button"));
-let startTimer = document.querySelector("button");
+let startTimer = document.querySelectorAll("button")[0];
 startTimer.classList.add(".start");
-startTimer.textContent = "Start/Pause";
+startTimer.textContent = "Start";
 enableStart();
 
-document.querySelector("body").appendChild(document.createElement("button"));
 let resetTimer = document.querySelectorAll("button")[1];
 resetTimer.classList.add(".reset");
 resetTimer.textContent = "Reset";
@@ -103,9 +108,31 @@ resetTimer.setAttribute('onclick', 'reset(); clearInterval(x); enableStart();');
 //stretch, styling 
 
 let buttons = document.querySelectorAll("button");
-buttons.forEach(ele => ele.style.backgroundColor = 'lightblue');
+buttons.forEach(ele => {
+  ele.style.borderRadius = '8px';
+  ele.style.padding = "10px";
+  ele.style.margin = "10px";
+  ele.style.width = "70px";
+  ele.style.border = "2px solid white";
+});
+startTimer.style.backgroundColor = "green";
+resetTimer.style.backgroundColor = "lightgrey";
 
-let body = document.querySelector(".digits");
-body.style.backgroundColor = 'lightgray';
-body.style.padding = '20px';
-body.style.border = '2px dotted green'
+
+let timerBody = document.querySelector(".digits");
+timerBody.style.backgroundColor = 'black';
+timerBody.style.padding = '20px';
+timerBody.style.border = '5px solid white'
+timerBody.style.borderRadius = '8px';
+timerBody.style.minWidth = '200px';
+timerBody.style.textAlign = 'center';
+timerBody.style.marginTop = "200px";
+timerBody.style.boxShadow = "0px 0px 15px 10px gray";
+first.style.color = 'white';
+second.style.color = 'white';
+third.style.color = 'white';
+fourth.style.color = 'white';
+colon.style.color = 'white';
+
+let body = document.querySelector('body');
+body.style.backgroundColor = "lightgray";
