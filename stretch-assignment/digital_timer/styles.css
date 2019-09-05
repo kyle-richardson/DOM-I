@@ -18,3 +18,7 @@ body {
 .whiteDigit {
   color: white;
 }
+
+.grayDigit {
+  color: gray;
+}
