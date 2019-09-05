@@ -47,6 +47,11 @@ fourth.textContent = fourthTemp;
   if (num > 999) {
     clearInterval(x);
     num = 0;
+    first.classList.remove("whiteDigit");
+    second.classList.remove("whiteDigit");
+    third.classList.remove("whiteDigit");
+    fourth.classList.remove("whiteDigit");
+    colon.classList.remove("whiteDigit");
     first.classList.add("redDigit");
     second.classList.add("redDigit");
     third.classList.add("redDigit");
@@ -89,6 +94,11 @@ let reset = function() {
   third.classList.remove("redDigit");
   fourth.classList.remove("redDigit");
   colon.classList.remove("redDigit");
+  first.classList.add("whiteDigit");
+  second.classList.add("whiteDigit");
+  third.classList.add("whiteDigit");
+  fourth.classList.add("whiteDigit");
+  colon.classList.add("whiteDigit");
 }
 
 document.querySelector(".digits").appendChild(document.createElement("section"));
@@ -128,11 +138,11 @@ timerBody.style.minWidth = '200px';
 timerBody.style.textAlign = 'center';
 timerBody.style.marginTop = "200px";
 timerBody.style.boxShadow = "0px 0px 15px 10px gray";
-first.style.color = 'white';
-second.style.color = 'white';
-third.style.color = 'white';
-fourth.style.color = 'white';
-colon.style.color = 'white';
+first.classList.add("whiteDigit");
+second.classList.add("whiteDigit");
+third.classList.add("whiteDigit");
+fourth.classList.add("whiteDigit");
+colon.classList.add("whiteDigit");
 
 let body = document.querySelector('body');
 body.style.backgroundColor = "lightgray";
