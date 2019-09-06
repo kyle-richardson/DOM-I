@@ -14,3 +14,11 @@ body {
 .redDigit {
   color: red;
 }
+
+.whiteDigit {
+  color: white;
+}
+
+.grayDigit {
+  color: gray;
+}

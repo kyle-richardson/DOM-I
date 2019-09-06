@@ -3,7 +3,7 @@ let second = document.getElementById("secondOnes");
 let colon = document.getElementById("colon");
 let third = document.getElementById("msHundreds");
 let fourth = document.getElementById("msTens");
-let timerFull = document.querySelector("digits");
+let timer = document.querySelectorAll(".digits div");
 
 // var start = new Date();
 var start = 0;
@@ -14,6 +14,30 @@ let secondTemp= "0";
 let thirdTemp= "0";
 let fourthTemp= "0";
 var x = "";
+
+let changeToWhite = function(obj) {
+  obj.forEach(ele => {
+    ele.classList.remove('redDigit');
+    ele.classList.remove('grayDigit');
+    ele.classList.add('whiteDigit');
+  });
+}
+let changeToRed = function(obj) {
+  obj.forEach(ele => {
+    ele.classList.remove('whiteDigit');
+    ele.classList.remove('grayDigit');
+    ele.classList.add('redDigit');
+  });
+}
+
+let changeToGray = function(obj) {
+  obj.forEach(ele => {
+    ele.classList.remove('whiteDigit');
+    ele.classList.remove('redDigit');
+    ele.classList.add('grayDigit');
+  });
+}
+
 
 var myFunction = function() {
   setBase(num);
@@ -47,12 +71,9 @@ fourth.textContent = fourthTemp;
   if (num > 999) {
     clearInterval(x);
     num = 0;
-    first.classList.add("redDigit");
-    second.classList.add("redDigit");
-    third.classList.add("redDigit");
-    fourth.classList.add("redDigit");
-    colon.classList.add("redDigit");
     enableStart();
+    changeToRed(timer);
+    
   }
 }
 
@@ -60,12 +81,14 @@ let enableStart = function() {
   startTimer.setAttribute('onclick', 'x = setInterval(myFunction, 10); disableStart()');
   startTimer.style.backgroundColor = "green";
   startTimer.textContent = "Start";
+  changeToGray(timer);
 }
 
 let disableStart = function() {
   startTimer.setAttribute('onclick', 'clearInterval(x); enableStart();');
   startTimer.style.backgroundColor = "red";
   startTimer.textContent = "Stop";
+  changeToWhite(timer);
 }
 
 let setBase = function(num) {
@@ -84,12 +107,10 @@ let reset = function() {
   secondTemp = "0";
   thirdTemp = "0";
   fourthTemp = "0";
-  first.classList.remove("redDigit");
-  second.classList.remove("redDigit");
-  third.classList.remove("redDigit");
-  fourth.classList.remove("redDigit");
-  colon.classList.remove("redDigit");
+  changeToWhite(timer);
 }
+
+
 
 document.querySelector(".digits").appendChild(document.createElement("section"));
 document.querySelector(".digits section").appendChild(document.createElement("button"));
@@ -128,11 +149,11 @@ timerBody.style.minWidth = '200px';
 timerBody.style.textAlign = 'center';
 timerBody.style.marginTop = "200px";
 timerBody.style.boxShadow = "0px 0px 15px 10px gray";
-first.style.color = 'white';
-second.style.color = 'white';
-third.style.color = 'white';
-fourth.style.color = 'white';
-colon.style.color = 'white';
+first.classList.add("whiteDigit");
+second.classList.add("whiteDigit");
+third.classList.add("whiteDigit");
+fourth.classList.add("whiteDigit");
+colon.classList.add("whiteDigit");
 
 let body = document.querySelector('body');
 body.style.backgroundColor = "lightgray";
