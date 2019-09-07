@@ -139,7 +139,8 @@ resetTimer.style.backgroundColor = "lightgrey";
 
 
 let timerBody = document.querySelector(".digits");
-timerBody.style.backgroundColor = 'black';
+const timeStyle = timerBody.style;
+timeStyle.backgroundColor = 'black';
 timerBody.style.padding = '20px';
 timerBody.style.border = '5px solid white'
 timerBody.style.borderRadius = '8px';
