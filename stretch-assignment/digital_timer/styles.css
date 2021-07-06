@@ -1,7 +1,9 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .digit {
@@ -11,4 +13,12 @@ body {
 
 .redDigit {
   color: red;
+}
+
+.whiteDigit {
+  color: white;
+}
+
+.grayDigit {
+  color: gray;
 }
